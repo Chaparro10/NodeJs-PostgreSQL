@@ -1,0 +1,6 @@
+npm init ->inicia el proyecto de Node
+npm i express(framework) dotenv(para las variables de entorno) cors(permite conexiones backend-front)
+npm install nodemon --save-dev ->>> nodemon -en modo desarrollo(dev) para cada cambio se actualize automaticamente(npm run dev)
+modulos instalados
+
+npm i sequelize ->Conexion con POSTGRESQL 
