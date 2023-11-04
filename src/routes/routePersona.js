@@ -5,7 +5,8 @@ const {
   agregaPersona,
   getPersonaID,
   actualizarPersona,
-  buscarPersonaPorNombre
+  buscarPersonaPorNombre,
+  generarPersonasPDF
 } = require('../controllers/controllersPersona');
 
 // Rutas relacionadas con personas
@@ -15,5 +16,9 @@ router.post('/', agregaPersona);
 router.get('/search/:search', buscarPersonaPorNombre);
 router.get('/:id', getPersonaID);
 router.put('/:id', actualizarPersona);
+//Generar PDF(http://localhost:3001/api/personas/)
+router.get('/pdf/pdf',generarPersonasPDF)
+
+
 
 module.exports = router;

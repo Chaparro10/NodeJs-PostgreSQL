@@ -90,10 +90,28 @@ const actualizarPersona = async (req, res) => {
 }
 
 
+//GENERAR PDF PRUEBAS
+const pdfController = require('./generarPdf');
+
+const generarPersonasPDF = async (req, res) => {
+    try {
+        const personas = await Persona.findAll();
+        
+        // Define los nombres de las columnas
+        const tableHeaders = ["idpersona", "nombre", "apellido","telefono"]; // Reemplaza con los nombres de las columnas de tu modelo
+        pdfController.generarPDF(personas, 'Persona', res, tableHeaders);
+    } catch (error) {
+        console.error('Error al generar el PDF de personas:', error);
+        res.status(500).json({ success: false, error: 'Error al generar el PDF de personas: ' + error.message });
+    }
+};
+
+
 module.exports = {
     getPersona,
     agregaPersona,
     getPersonaID,
     actualizarPersona,
-    buscarPersonaPorNombre
+    buscarPersonaPorNombre,
+    generarPersonasPDF
 }

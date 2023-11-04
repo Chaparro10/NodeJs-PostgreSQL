@@ -4,3 +4,5 @@ npm install nodemon --save-dev ->>> nodemon -en modo desarrollo(dev) para cada c
 modulos instalados
 
 npm i sequelize ->Conexion con POSTGRESQL 
+
+npm install pdfkit->Libreria para uso de PDF
