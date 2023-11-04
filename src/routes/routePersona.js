@@ -1,10 +1,19 @@
-const { Router } = require('express');
-const router = Router(); // Crear una instancia del enrutador
+const express = require('express');
+const router = express.Router();
+const {
+  getPersona,
+  agregaPersona,
+  getPersonaID,
+  actualizarPersona,
+  buscarPersonaPorNombre
+} = require('../controllers/controllersPersona');
 
-const { getPersona} = require('../controllers/controllersPersona'); // Importamos los métodos para utilizarlos en las rutas
-//http://localhost:3001/api/personas/
-router.route('/').get(getPersona)//Ruta traer Personas
+// Rutas relacionadas con personas
+////http://localhost:3001/api/personas/
+router.get('/', getPersona);
+router.post('/', agregaPersona);
+router.get('/search/:search', buscarPersonaPorNombre);
+router.get('/:id', getPersonaID);
+router.put('/:id', actualizarPersona);
 
-
-
-module.exports=router;
+module.exports = router;
